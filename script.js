@@ -1,12 +1,16 @@
 // Le BMI(IMC en français) se calcule en divisant la masse corporelle en kilogramme(kg)
-// par la taille en mètres(m) au carré. Sa valeur s'exprime en kg/m2 
+// par la taille en mètres(m) au carré. Sa valeur s'exprime en kg/m²
 
-function BMI() {
-    var h = document.getElementById('h').value;
-    var w = document.getElementById('w').value;
-    var bmi, bmio = 0;
-    var warn = document.getElementById('info');
-    var res = document.getElementById('result');
+const btnCalc = document.getElementById('btn');
+
+btnCalc.addEventListener('click', calculateBMI)
+
+function calculateBMI() {
+    const h = document.getElementById('height').value;
+    const w = document.getElementById('weight').value;
+    const warn = document.getElementById('info');
+    const res = document.getElementById('result');
+    let bmi, bmio = 0;
 
     warn.innerHTML = "";
     res.innerHTML = "";
@@ -21,7 +25,7 @@ function BMI() {
             bmi = w / (h * h);
         }
         bmio = (bmi.toFixed(2));
-        res.innerHTML = "Your BMI is " + bmio;
+        res.innerHTML = "Your BMI is " + bmio + " kg/m²";
     }
 }
 
